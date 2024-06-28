@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,51 +9,87 @@
   font-family: "Montserrat", sans-serif;
 }
 
-
 @layer base {
 
-  .active_link{
-    @apply text-secondary relative flex-1 after:w-full after:h-[1px] after:bg-secondary after:absolute after:-bottom-3 after:right-0;
+  .active_link {
+    @apply text-secondary relative flex-1;
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    right: 0;
+    height: 0.0625rem;
+    background-color: var(--secondary);
+    width: 100%;
   }
-  
+
   .h1 {
-    @apply text-[48px] leading-tight md:text-[72px] md:leading-[1.3] mb-8 font-bold;
+    @apply mb-8 font-bold;
+    font-size: 3rem; /* 48px */
+    line-height: 1.2;
+    @screen md {
+      font-size: 4.5rem; /* 72px */
+      line-height: 1.3;
+    }
   }
 
   .h2 {
-    @apply text-[40px] leading-tight md:text-[55px] md:leading-[1.3] mb-4 font-bold;
+    @apply mb-4 font-bold;
+    font-size: 2.5rem; /* 40px */
+    line-height: 1.2;
+    @screen md {
+      font-size: 3.4375rem; /* 55px */
+      line-height: 1.3;
+    }
   }
 
   .h3 {
-    @apply text-[32px] leading-tight md:text-[36px] md:leading-[1.3] mb-4 font-semibold;
+    @apply mb-4 font-semibold;
+    font-size: 2rem; /* 32px */
+    line-height: 1.2;
+    @screen md {
+      font-size: 2.25rem; /* 36px */
+      line-height: 1.3;
+    }
   }
 
   p {
-    @apply leading-[1.3] text-gray-30 text-[15px];
+    @apply text-gray-30;
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.3;
   }
 }
 
 @layer utilities {
 
- 
-
-  .btn_secondary_rounded  { 
-    @apply  medium-15 border border-secondary bg-secondary px-7 py-3 text-white transition-all hover:bg-secondary rounded-full 
-  }
-  .btn_red_rounded  { 
-    @apply  medium-15 border bg-red-500 px-7 py-3 text-white transition-all hover:bg-red-700 rounded-full 
+  .btn_secondary_rounded {
+    @apply border border-secondary bg-secondary text-white transition-all rounded-full;
+    font-size: 0.9375rem; /* 15px */
+    padding: 0.75rem 1.75rem;
+    &:hover {
+      background-color: var(--secondary-hover);
+    }
   }
 
   .max-container {
-    @apply mx-auto max-w-[1440px];
+    @apply mx-auto;
+    max-width: 90rem; /* 1440px */
   }
 
   .padding-container {
-    @apply px-6 lg:px-20;
+    @apply px-6;
+    @screen lg {
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
   }
-  
+
   .max_padd_container {
-    @apply mx-auto max-w-[1440px] px-6 lg:px-20;
+    @apply mx-auto px-6;
+    max-width: 90rem; /* 1440px */
+    @screen lg {
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
   }
 
   .flexCenter {
@@ -75,128 +110,180 @@
 
   /* FONTS */
   .regular-64 {
-    @apply text-[64px] font-[400] leading-[120%];
+    @apply font-normal;
+    font-size: 4rem; /* 64px */
+    line-height: 1.2;
   }
 
   .regular-52 {
-    @apply text-[52px] font-[400] leading-[120%];
+    @apply font-normal;
+    font-size: 3.25rem; /* 52px */
+    line-height: 1.2;
   }
 
   .regular-48 {
-    @apply text-[48px] font-[400] leading-[120%];
+    @apply font-normal;
+    font-size: 3rem; /* 48px */
+    line-height: 1.2;
   }
 
   .regular-40 {
-    @apply text-[40px] font-[400] leading-[120%];
+    @apply font-normal;
+    font-size: 2.5rem; /* 40px */
+    line-height: 1.2;
   }
 
   .regular-32 {
-    @apply text-[32px] font-[400];
+    @apply font-normal;
+    font-size: 2rem; /* 32px */
   }
 
   .regular-28 {
-    @apply text-[28px] font-[400];
+    @apply font-normal;
+    font-size: 1.75rem; /* 28px */
   }
 
   .regular-24 {
-    @apply text-[24px] font-[400];
+    @apply font-normal;
+    font-size: 1.5rem; /* 24px */
   }
 
   .regular-20 {
-    @apply text-[20px] font-[400];
+    @apply font-normal;
+    font-size: 1.25rem; /* 20px */
   }
 
   .regular-18 {
-    @apply text-[18px] font-[400];
+    @apply font-normal;
+    font-size: 1.125rem; /* 18px */
   }
 
   .regular-16 {
-    @apply text-[16px] font-[400];
+    @apply font-normal;
+    font-size: 1rem; /* 16px */
   }
 
   .regular-15 {
-    @apply text-[15px] font-[400];
+    @apply font-normal;
+    font-size: 0.9375rem; /* 15px */
   }
+
   .regular-14 {
-    @apply text-[14px] font-[400];
+    @apply font-normal;
+    font-size: 0.875rem; /* 14px */
   }
 
   .medium-24 {
-    @apply text-[24px] font-[600];
+    @apply font-semibold;
+    font-size: 1.5rem; /* 24px */
   }
+
   .medium-22 {
-    @apply text-[22px] font-[600];
+    @apply font-semibold;
+    font-size: 1.375rem; /* 22px */
   }
+
   .medium-20 {
-    @apply text-[20px] font-[600];
+    @apply font-semibold;
+    font-size: 1.25rem; /* 20px */
   }
+
   .medium-18 {
-    @apply text-[18px] font-[600];
+    @apply font-semibold;
+    font-size: 1.125rem; /* 18px */
   }
 
   .medium-16 {
-    @apply text-[16px] font-[600];
+    @apply font-semibold;
+    font-size: 1rem; /* 16px */
   }
 
   .medium-15 {
-    @apply text-[15px] font-[600];
+    @apply font-semibold;
+    font-size: 0.9375rem; /* 15px */
   }
+
   .medium-14 {
-    @apply text-[14px] font-[600];
+    @apply font-semibold;
+    font-size: 0.875rem; /* 14px */
   }
 
   .bold-88 {
-    @apply text-[88px] font-[700] leading-[120%];
+    @apply font-bold;
+    font-size: 5.5rem; /* 88px */
+    line-height: 1.2;
   }
 
   .bold-64 {
-    @apply text-[64px] font-[700] leading-[120%];
+    @apply font-bold;
+    font-size: 4rem; /* 64px */
+    line-height: 1.2;
   }
 
   .bold-52 {
-    @apply text-[52px] font-[700] leading-[120%];
+    @apply font-bold;
+    font-size: 3.25rem; /* 52px */
+    line-height: 1.2;
   }
 
   .bold-48 {
-    @apply text-[48px] font-[700] leading-[120%];
+    @apply font-bold;
+    font-size: 3rem; /* 48px */
+    line-height: 1.2;
   }
 
   .bold-44 {
-    @apply text-[44px] font-[700] leading-[120%];
+    @apply font-bold;
+    font-size: 2.75rem; /* 44px */
+    line-height: 1.2;
   }
 
   .bold-40 {
-    @apply text-[40px] font-[700] leading-[120%];
+    @apply font-bold;
+    font-size: 2.5rem; /* 40px */
+    line-height: 1.2;
   }
 
   .bold-36 {
-    @apply text-[36px] font-[700] leading-[120%];
+    @apply font-bold;
+    font-size: 2.25rem; /* 36px */
+    line-height: 1.2;
   }
+
   .bold-32 {
-    @apply text-[32px] font-[700] leading-[120%];
+    @apply font-bold;
+    font-size: 2rem; /* 32px */
+    line-height: 1.2;
   }
 
   .bold-28 {
-    @apply text-[28px] font-[700] leading-[120%];
+    @apply font-bold;
+    font-size: 1.75rem; /* 28px */
+    line-height: 1.2;
   }
 
   .bold-22 {
-    @apply text-[22px] font-[700];
+    @apply font-bold;
+    font-size: 1.375rem; /* 22px */
   }
 
   .bold-20 {
-    @apply text-[20px] font-[700];
+    @apply font-bold;
+    font-size: 1.25rem; /* 20px */
   }
 
   .bold-18 {
-    @apply text-[18px] font-[700];
+    @apply font-bold;
+    font-size: 1.125rem; /* 18px */
   }
 
   .bold-16 {
-    @apply text-[16px] font-[700];
-  }
-  .bold-15 {
-    @apply text-[15px] font-[700];
+    @apply font-bold;
+    font-size: 1rem; /* 16px */
   }
 
+  .bold-15 {
+    @apply font-bold;
+    font-size: 0.9375rem; /* 15px */
+  }
 }
