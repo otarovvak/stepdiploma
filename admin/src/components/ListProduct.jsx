@@ -47,8 +47,8 @@ const ListProduct = () => {
   };
 
   const loadMore = () => {
-    setLoadCount((prevCount) => prevCount + 20);
-    setVisibleProducts(allProducts.slice(0, loadCount + 20));
+    setLoadCount((prevCount) => prevCount + 15);
+    setVisibleProducts(allProducts.slice(0, loadCount + 15));
   };
 
   const uniqueCategories = Array.from(

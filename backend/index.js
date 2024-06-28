@@ -241,22 +241,6 @@ app.get("/popularproducts", async (req, res) => {
   console.log("popular products Fetched");
   res.send(popularproducts);
 });
-const fetchUser = async (req, res, next) => {
-  const token = req.header("auth-token");
-  if (!token) {
-    res.status(401).send({ errors: "Please authenticate using valid login" });
-  } else {
-    try {
-      const data = jwt.verify(token, "secret_ecom");
-      req.user = data.user;
-      next();
-    } catch (error) {
-      res
-        .status(401)
-        .send({ errors: "please autheticate using a valid token" });
-    }
-  }
-};
 
 app.post("/addtocart", fetchUser, async (req, res) => {
   const { productId, selectedColor } = req.body;
@@ -268,8 +252,6 @@ app.post("/addtocart", fetchUser, async (req, res) => {
       console.error("User not found");
       return res.status(404).json({ error: "User not found" });
     }
-
-    // Ensure userData.cartData is initialized if needed
 
     const existingItemIndex = userData.cartData.findIndex(
       (item) =>
@@ -467,7 +449,15 @@ app.get("/users/:userId", async (req, res) => {
     });
   }
 });
-
+app.post("/:orderId/approve", async (req, res) => {
+  try {
+    const orderId = req.params.orderId;
+    await Order.findByIdAndUpdate(orderId, { status: "Approved" });
+    res.status(200).json({ message: "Order approved" });
+  } catch (error) {
+    res.status(500).json({ error: "Error approving order" });
+  }
+});
 app.listen(port, (error) => {
   if (!error) {
     console.log("Server is running on port " + port);

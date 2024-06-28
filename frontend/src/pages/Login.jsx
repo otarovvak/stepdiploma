@@ -68,7 +68,7 @@ const Login = () => {
               onChange={changeHandler}
               type="text"
               placeholder="Your Name"
-              className="h-14 w-full pl-5 bg-slate-900/5 outline-none rounded-xl"
+              className="h-14 w-full pl-5 outline-none rounded-xl"
             />
           ) : (
             ""

@@ -79,11 +79,10 @@ const ShopContextProvider = (props) => {
         })
         .then((data) => {
           console.log("Added to cart:", data);
-          fetchCartData(); // Refresh cart data after successful addition
+          fetchCartData();
         })
         .catch((error) => {
           console.error("Error adding to cart:", error);
-          // Handle error gracefully, update state or display error message
         });
     }
   };

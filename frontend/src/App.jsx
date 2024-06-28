@@ -13,7 +13,7 @@ const App = () => {
   const isCartPage = location.pathname === "/cart-page";
 
   return (
-    <main className="bg-primary text-tertiary min-h-screen flex flex-col">
+    <main className="bg-primary  min-h-screen flex flex-col">
       <Header />
       <div className="flex-grow">
         <Routes>

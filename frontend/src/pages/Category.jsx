@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
 import { ShopContext } from "../Context/ShopContext";
 
-const Category = ({ banner }) => {
+const Category = () => {
   const { all_products } = useContext(ShopContext);
   const [productsToDisplay, setProductsToDisplay] = useState(12);
   const [filteredProducts, setFilteredProducts] = useState(all_products);
@@ -65,7 +65,7 @@ const Category = ({ banner }) => {
           onFilter={handleFilter}
         />
         {/* container */}
-        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredProducts.slice(0, productsToDisplay).map((item) => (
             <Item
               key={item._id}

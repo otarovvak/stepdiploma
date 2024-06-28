@@ -73,7 +73,7 @@ const Orders = () => {
               <tr
                 key={order._id}
                 className={`border-b border-gray-200 ${
-                  order.approved ? "bg-green-100" : ""
+                  order.status === "Approved" ? "bg-green-100" : ""
                 }`}
               >
                 <td className="px-4 py-2">{order._id}</td>
@@ -92,7 +92,7 @@ const Orders = () => {
                         </p>
                         <p>
                           Quantity: {item.quantity}
-                          Color: {item.color.colour_name}
+                          Color: {item.color && item.color.colour_name}
                         </p>
                       </div>
                     </div>
@@ -103,11 +103,9 @@ const Orders = () => {
                 <td className="px-4 py-2">
                   {new Date(order.date).toLocaleString()}
                 </td>
-                <td className="px-4 py-2">
-                  {order.status ? "Approved" : "Pending"}
-                </td>
+                <td className="px-4 py-2">{order.status}</td>
                 <td className="px-4 py-2 space-x-2">
-                  {!order.approved && (
+                  {order.status === "Pending" && (
                     <button
                       className="btn_secondary_rounded"
                       onClick={() => approveOrder(order._id)}

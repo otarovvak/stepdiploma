@@ -27,14 +27,12 @@ const Item = ({
 
   return (
     <Link to={`/product/${id}`} className="block">
-      <div className="rounded-xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-shadow duration-300">
-        <div className="relative flex justify-center items-center overflow-hidden transition-all duration-300">
-          <img src={image} alt={name} className="w-58 h-60 object-cover" />
+      <div className="rounded-xl overflow-hidden shadow-lg bg-white ">
+        <div className="relative flex justify-center items-center ">
+          <img src={image} alt={name} className="w-58 h-60 " />
         </div>
         <div className="p-4">
-          <h4 className="text-lg font-semibold my-2 line-clamp-2 text-gray-800">
-            {name}
-          </h4>
+          <h4 className="text-lg font-semibold my-2  text-gray-800">{name}</h4>
           <div className="text-xl font-bold text-green-600 mb-2">${price}</div>
           <div className="flex mb-2">{renderStars()}</div>
           {category && (
